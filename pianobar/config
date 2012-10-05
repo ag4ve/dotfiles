@@ -1,4 +1,5 @@
 user = ag4ve@yahoo.com
+# password = <password>
 
 audio_format = mp3-hifi
 event_command = /home/swilson/.config/pianobar/notify
