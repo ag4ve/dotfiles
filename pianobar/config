@@ -1,0 +1,4 @@
+user = ag4ve@yahoo.com
+
+audio_format = mp3-hifi
+event_command = /home/swilson/.config/pianobar/notify
