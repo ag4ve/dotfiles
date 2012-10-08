@@ -1,0 +1,19 @@
+
+URxvt*foreground: Green
+URxvt*background: Black
+
+# URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+# URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+
+URxvt*font: xft:terminus:pixelsize=15
+URxvt*boldFont: xft:terminus:bold:pixelsize=15
+
+URxvt*saveLines: 0
+URxvt*scrollBar: False
+
+URxvt*perl-ext-common: default,clipboard
+
+URxvt.perl-ext-common:  default,matcher
+URxvt.urlLauncher:      /usr/bin/chromium-browser
+URxvt.matcher.button:   1
+
