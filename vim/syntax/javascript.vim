@@ -1,0 +1,1 @@
+/home/swilson/gits/vim-javascript-syntax/syntax/javascript.vim

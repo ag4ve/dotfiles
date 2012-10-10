@@ -1,0 +1,1 @@
+/home/swilson/gits/snipmate.vim/autoload/snipMate.vim

@@ -1,0 +1,1 @@
+/home/swilson/gits/snipmate.vim/syntax/snippet.vim

@@ -1,0 +1,1 @@
+/usr/local/share/vim/vim73/ftplugin/man.vim
