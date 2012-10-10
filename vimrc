@@ -1,4 +1,6 @@
 
+let $PAGER=''       " clear PAGER so vim can take over the task
+
 set nocompatible               " be iMproved
 filetype on                   " required!
 
