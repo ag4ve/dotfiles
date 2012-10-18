@@ -29,7 +29,7 @@ ZSH_THEME="terminalparty"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm node perl ssh-agent)
+plugins=(git npm node perl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,7 +38,23 @@ export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 export TZ=America/New_York
 export GIT_EDITOR=vim
 
+# Make VIM man pager
 export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
     vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
+# run gpg daemon and export for ssh
+envfile="${HOME}/.gnupg/gpg-agent.env"
+if test -f "$envfile" && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
+    eval "$(cat "$envfile")"
+else
+    eval "$(gpg-agent --daemon --write-env-file "$envfile" -s --enable-ssh-support)"
+fi
+
+eval `keychain --eval id_dsa`
+
+export GPG_TTY='tty'
+export GPG_AGENT_INFO
+export SSH_AUTH_SOCK
+
