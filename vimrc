@@ -36,7 +36,7 @@ set noerrorbells    " don't beep
 set backspace=2     " make backspace work like most other apps
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set iskeyword+=-    " match key-word because if gd thing-name, i want to select the whole thing-name 
-set winheight=30
+set winheight=20
 set winminheight=5
 
 " tell it to use an undo file
