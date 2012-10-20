@@ -1,3 +1,7 @@
+
+# Autoloads
+autoload edit-command-line
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -37,6 +41,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/lib/gems/1.8/bin
 export TZ=America/New_York
 export GIT_EDITOR=vim
+export WORDCHARS='-' # consider --version, -h, etc one whole word
 
 # Make VIM man pager
 export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
@@ -57,4 +62,21 @@ eval `keychain --eval id_dsa`
 export GPG_TTY='tty'
 export GPG_AGENT_INFO
 export SSH_AUTH_SOCK
+
+
+# Set vi-mode and create a few additional Vim-like mappings
+bindkey -v
+bindkey "^?" backward-delete-char
+bindkey -M vicmd "^R" redo
+bindkey -M vicmd "u" undo
+bindkey -M vicmd "ga" what-cursor-position
+bindkey -M viins '^p' history-beginning-search-backward
+bindkey -M vicmd '^p' history-beginning-search-backward
+bindkey -M viins '^n' history-beginning-search-forward
+bindkey -M vicmd '^n' history-beginning-search-forward
+
+# Allows editing the command line with an external editor
+zle -N edit-command-line
+bindkey -M vicmd "v" edit-command-line
+
 
