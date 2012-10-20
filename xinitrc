@@ -1,5 +1,11 @@
 # .xinitrc
 
+# Global xinit
+. /etc/X11/Xsession
+
+# PA sound
+/usr/bin/start-pulseaudio-x11
+
 xrandr -s 0
 
 xrdb $HOME/.Xresources
