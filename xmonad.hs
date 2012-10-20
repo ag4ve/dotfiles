@@ -28,6 +28,8 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.MagicFocus
 import XMonad.Layout.Named
+import XMonad.Layout.IM
+import XMonad.Layout.Reflect
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import System.Exit
@@ -344,7 +346,9 @@ myLayout = avoidStruts (noBorders (tabbed shrinkText myTConf)
 --
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
+    , className =? "Gimp"           --> withIM (0.11) (Role "gimp-toolbox") $
+                                        reflectHoriz $
+                                        withIM (0.15) (Role "gimp-dock") Full
     , className =? "Firefox-bin"    --> doF (W.shift "8:theta")
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ] <+> manageDocks
