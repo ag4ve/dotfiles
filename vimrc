@@ -12,6 +12,7 @@ call pathogen#runtime_append_all_bundles()
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+set viminfo='20,\"100,:200,%,n~/.viminfo
 
 set ts=4 st=4 ht=4 et
 
