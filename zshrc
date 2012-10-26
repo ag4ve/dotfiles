@@ -14,6 +14,8 @@ ZSH_THEME="terminalparty"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ymdhms='date +%Y%m%d%H%M%S'
+alias refresh='exec su -l $USER'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
