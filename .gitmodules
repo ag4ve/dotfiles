@@ -7,3 +7,12 @@
 [submodule "vim/bundle/vimux"]
 	path = vim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "modules/vim-togglemouse"]
+	path = modules/vim-togglemouse
+	url = https://github.com/nvie/vim-togglemouse.git
+[submodule "modules/snipmate.vim"]
+	path = modules/snipmate.vim
+	url = https://github.com/msanders/snipmate.vim
+[submodule "modules/lusty"]
+	path = modules/lusty
+	url = https://github.com/sjbach/lusty.git
