@@ -1,1 +1,1 @@
-/home/swilson/gits/vim-togglemouse/plugin/toggle_mouse.vim
+../../modules/vim-togglemouse/plugin/toggle_mouse.vim

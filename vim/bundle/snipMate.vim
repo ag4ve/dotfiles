@@ -1,1 +1,1 @@
-/home/swilson/gits/snipmate.vim/autoload/snipMate.vim
+../../modules/snipmate.vim/autoload/snipMate.vim

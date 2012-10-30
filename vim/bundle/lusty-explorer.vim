@@ -1,1 +1,1 @@
-/home/swilson/gits/lusty/plugin/lusty-explorer.vim
+../../modules/lusty/plugin/lusty-explorer.vim

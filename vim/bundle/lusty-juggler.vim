@@ -1,1 +1,1 @@
-/home/swilson/gits/lusty/plugin/lusty-juggler.vim
+../../modules/lusty/plugin/lusty-juggler.vim
