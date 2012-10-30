@@ -4,6 +4,7 @@ PWD=`pwd`
 
 mkdir ./backup
 git submodule init
+git submodule update
 
 cp -R ~/.config/pianobar ./backup
 ln -fs $PWD/pianobar ~/.config/pianobar
@@ -33,4 +34,7 @@ ln -fs $PWD/zshenv ~/.zshenv
 
 cp ~/.zshrc ./backup
 ln -fs $PWD/zshrc ~/.zshrc
+
+# make sure bundles are installed
+vim +BundleInstall +qall
 
