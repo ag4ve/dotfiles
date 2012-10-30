@@ -3,6 +3,7 @@
 PWD=`pwd`
 
 mkdir ./backup
+git submodule init
 
 cp -R ~/.config/pianobar ./backup
 ln -fs $PWD/pianobar ~/.config/pianobar
@@ -12,6 +13,11 @@ ln -fs $PWD/tmux.conf ~/.tmux.conf
 
 cp ~/.vimrc ./backup
 ln -fs $PWD/vimrc ~/.vimrc
+
+mv -R ~/.vim ./backup
+mkdir -p ./vim/swpfiles
+mkdir -p ./vim/undos
+ln -fs $PWD/vim ~/.vim
 
 cp ~/.Xdefaults ./backup
 ln -fs $PWD/Xdefaults ~/.Xdefaults
