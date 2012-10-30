@@ -42,6 +42,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/lib/gems/1.8/bin
 export TZ=America/New_York
+export EDITOR=vim
+export VISUAL=vim
 export GIT_EDITOR=vim
 export WORDCHARS='-' # consider --version, -h, etc one whole word
 
