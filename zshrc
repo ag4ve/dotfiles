@@ -39,6 +39,10 @@ plugins=(git npm node perl)
 
 source $ZSH/oh-my-zsh.sh
 
+# Disable the ASCII DC3 stop flow control CTRL+S
+# REMEMBER - add this to all shell configs no matter what !!!!
+stty -ixon
+
 # Customize to your needs...
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/lib/gems/1.8/bin
 export TZ=America/New_York
