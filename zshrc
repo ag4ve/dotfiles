@@ -16,6 +16,7 @@ ZSH_THEME="terminalparty"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ymdhms='date +%Y%m%d%H%M%S'
 alias refresh='exec su -l $USER'
+alias git-treelog="git log --oneline --graph --decorate --all"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
