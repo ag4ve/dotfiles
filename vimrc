@@ -96,7 +96,7 @@ autocmd BufEnter * :syntax sync fromstart
 " detect file type
 filetype plugin indent on
 
-" disable features that mess up pasting
+" toggle features that mess up pasting
 set pastetoggle=<F2>
 
 " use ; instead of :
@@ -105,6 +105,10 @@ nnoremap ; :
 " jump to next/prev row
 nnoremap j gj
 nnoremap k gk
+
+" auto save/load session
+let g:session_autoload=1
+let g:session_autoload=1
 
 " lustyjuggler map
 nmap <silent> <Leader>j :LustyJuggler<CR>
