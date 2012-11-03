@@ -4,6 +4,8 @@ let $PAGER=''       " clear PAGER so vim can take over the task
 set nocompatible               " be iMproved
 filetype on                   " required!
 
+runtime macros/matchit.vim
+
 " Use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
 call pathogen#helptags()
@@ -16,6 +18,7 @@ set viminfo='20,\"100,:200,%,n~/.viminfo
 
 set ts=4 st=4 ht=4 et
 
+set shortmess=atI   " TODO look up
 set autoindent      " always set autoindenting on
 set copyindent      " copy the previous indentation on autoindenting
 set shiftwidth=4    " number of spaces to use for autoindenting
@@ -39,6 +42,15 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set iskeyword+=-    " match key-word because if gd thing-name, i want to select the whole thing-name 
 set winheight=20
 set winminheight=5
+set hidden          " change buffer without writing
+set scrolloff=3     " scroll before we hit the bottom
+set wildmode=list:longest   " command autocomplete like a shell
+let mapleader=","   " remap leader (\) to ,
+set laststatus=2    " see the statusline when looking at one file
+
+set sessionoptions=
+set sessionoptions+=blank,buffers,curdir,folds,globals,help,localoptions
+set sessionoptions+=options,resize,tabpages,winsize,winpos
 
 " tell it to use an undo file
 set undofile
@@ -52,6 +64,28 @@ set undoreload=10000
 " swp file and backup path
 set backupdir=$HOME/.vim/swpfiles/
 set directory=$HOME/.vim/swpfiles/
+
+" nice colorful ruler
+" might want: https://github.com/Lokaltog/vim-powerline
+hi User1 ctermbg=blue ctermfg=green guibg=blue guifg=green
+hi User2 ctermbg=gray ctermfg=black guibg=gray guifg=black
+hi User3 ctermbg=red ctermfg=blue guibg=red guifg=blue
+hi User4 ctermbg=blue ctermfg=black guibg=blue guifg=black
+set statusline=
+set statusline+=%{getcwd()}>\ 
+set statusline+=%1*%t%*\ 
+set statusline+=%2*[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%*
+set statusline+=%3*%h%m%r%y%*
+set statusline+=%=%4*%c,%l/%L\ %P%*
+
+" Copy to X CLIPBOARD
+map <leader>cc :w !xsel -i -b<CR>
+map <leader>cp :w !xsel -i -p<CR>
+map <leader>cs :w !xsel -i -s<CR>
+" Paste from X CLIPBOARD
+map <leader>pp :r!xsel -p<CR>
+map <leader>ps :r!xsel -s<CR>
+map <leader>pb :r!xsel -b<CR>
 
 " syntax hilight
 syntax on
@@ -87,7 +121,7 @@ fu! <sid>AdjustCWD()
     endif
 endfu
 
-map <silent> <f5> :<c-u>call <sid>AdjustCWD()<cr>
+map <silent> <F5> :<c-u>call <sid>AdjustCWD()<cr>
 
 " CSS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -110,3 +144,5 @@ Bundle 'gmarik/vundle'
 Bundle "pangloss/vim-javascript"
 
 Bundle "benmills/vimux"
+
+Bundle "xolox/vim-session"
