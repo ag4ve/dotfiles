@@ -16,3 +16,6 @@
 [submodule "modules/lusty"]
 	path = modules/lusty
 	url = https://github.com/sjbach/lusty.git
+[submodule "vim/bundle/vim-session"]
+	path = vim/bundle/vim-session
+	url = https://github.com/xolox/vim-session
