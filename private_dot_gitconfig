@@ -1,0 +1,102 @@
+[user]
+  name = Shawn Wilson
+  email = srwilson@ioswitch.dev
+  signingkey = B8AB96D52BF0B6D4
+#  signingkey = 846FF490
+[alias]
+  treelog = log --oneline --graph --decorate --all
+# From commits into a directory(1) create and apply them to a branch(2)
+#  branchdir = "!f() { \
+#    git branch \"$2\" && \
+#    git filter-branch --subdirectory-filter \"$1\" -- \"$2\" && \
+#    git filter-branch --tree-filter \"mkdir -p \"$1\" && \
+#      find -maxdepth 1 \
+#        | grep -vE \'^(\\.|\\.git|\./\"${1%%/*}\"\' \
+#        | xargs -i{} mv {} \"$1\" \
+#    \"; }; \
+#  f"
+  reapdir = "!f() { \
+    if [ -d \"$1\" ] ; then \
+      git filter-branch --prune-empty --subdirectory-filter \"$1\" -- --all && \
+      git gc --aggressive && \
+      git prune && \
+      git filter-branch -f --prune-empty --index-filter '\
+        git ls-files -s \
+          | sed \"s-\\t-&$1-\" \
+          | GIT_INDEX_FILE=$GIT_INDEX_FILE.new git update-index --index-info && \
+            mv $GIT_INDEX_FILE.new $GIT_INDEX_FILE'; \
+    else \
+      echo \"No directory $1\"; \
+    fi; }; \
+  f"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(bold green)%GS [%G?]%Creset' --abbrev-commit --date=relative
+  tg = for-each-ref --format='%(refname:short) %(taggerdate) %(subject) %(body)' refs/tags
+[filter "gitconfig-rmuser"]
+  clean = sed -e \"s/^\\( *email =\\).*/\\1 <email address>/\" -e \"s/^\\( *name =\\).*/\\1 <real name>/\" -e \"s/^\\( *signingkey =\\).*/\\1 <gpg key>/\"
+  smudge = egrep \"^ *(email|name|signingkey) = \"
+[commit]
+  status = true
+  gpgsign = true
+[push]
+  default = matching
+[init]
+	defaultBranch = master
+#  templatedir = ~/.git_template/
+[core]
+  pager = less -FRSX
+[help]
+  autocorrect = true
+[advice]
+  pushNonFastForward = false
+  statusHints = false
+[diff]
+  renames = copies
+  mnemonicprefix = true
+[branch]
+  autosetupmerge = true
+[rerere]
+  enabled = true
+[merge]
+  stat = true
+[color]
+  ui = true
+[color "diff"]
+  plain = normal
+  meta = bold
+  frag = cyan red
+  old = red
+  new = green blue bold
+  commit = yellow
+  whitespace = normal red
+[color "branch"]
+  current = green
+  local = normal
+  remote = red
+  plain = normal
+[color "status"]
+  header = normal red
+  added = white bold
+  updated = green bold
+  changed = red bold
+  untracked = yellow bold
+  nobranch = red bold
+[color "grep"]
+  match = normal
+[color "interactive"]
+  prompt = normal
+  header = normal red bold
+  help = normal
+  error = normal
+[color "log"]
+  header = normal red bold
+[hub]
+        host = some.url.com
+        protocol = ssh
+[gpg]
+	program = gpg2
+[safe]
+	directory = /storage/emulated/0/srwilson/gits/ssh-test
+
+
+[credential]
+	helper = osxkeychain

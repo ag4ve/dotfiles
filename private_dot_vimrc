@@ -1,0 +1,407 @@
+let $PAGER=''       " clear PAGER so vim can take over the task
+
+" clear autocmd
+:autocmd!
+
+set nocompatible    " be iMproved
+
+runtime macros/matchit.vim
+
+" Download vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+" set the runtime path to include Vundle and initialize
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+call plug#begin('~/.vim/plugged')
+
+" Bundle stuff
+" let Vundle manage Vundle, required
+" Plugin 'gmarik/Vundle.vim'
+Plug 'flazz/vim-colorschemes'
+
+" If not in vimdiff
+if &diff
+
+else
+  " Plug 'git://git.wincent.com/command-t.git'
+  " Plug 'benmills/vimux'
+  Plug 'bogado/file-line'
+  Plug 'ciaranm/securemodelines'
+  Plug 'c9s/perlomni.vim'
+  " Plug 'dahu/SearchParty'
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'jamessan/vim-gnupg'
+  Plug 'kshenoy/vim-signature'
+  Plug 'marcweber/vim-addon-mw-utils'
+  Plug 'mbbill/undotree'
+  Plug 'nvie/vim-togglemouse'
+  " Plug 'pangloss/vim-javascript'
+  Plug 'rking/ag.vim'
+  Plug 'scrooloose/syntastic'
+  " Plug 'Shougo/vimproc.vim'
+  " Plug 'Shougo/vimshell.vim'
+  Plug 'Shougo/unite.vim'
+  Plug 'sjbach/lusty'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-pathogen'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-speeddating'
+  Plug 'tpope/vim-surround'
+  " Plug 'Valloric/YouCompleteMe'
+  Plug 'vim-scripts/Align'
+  " Plug 'vim-scripts/bash-support.vim'
+  " Plug 'vim-scripts/perl-support.vim'
+  " Plug 'vim-scripts/python_match.vim'
+  " Plug 'vim-scripts/Modeliner'
+  Plug 'vim-scripts/taglist.vim'
+  " Plug 'vim-utils/vim-man'
+  Plug 'wojtekmach/vim-rename'
+  " Plug 'xolox/vim-misc'
+  " Plug 'xolox/vim-session'
+  " Plug 'xolox/vim-shell'
+  if has('nvim')
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'rmagatti/auto-session'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    Plug 'nvim-treesitter/completion-treesitter'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'saadparwaiz1/cmp_luasnip'
+    Plug 'rafamadriz/friendly-snippets'
+    Plug 'neovim/nvim-lspconfig'
+    " Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+    " Plug 'ray-x/navigator.lua'
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+  endif
+endif
+
+" All of your Plugins must be added before the following line
+"call vundle#end()            " required
+call plug#end()
+
+if &diff
+  colorscheme zen
+  hi CursorLine term=bold cterm=bold guibg=White ctermbg=NONE ctermfg=NONE
+else
+  "colorscheme symfony
+  "colorscheme peaksea
+  colorscheme inkpot
+
+  " set current line text bold and current line number color
+  hi CursorLine term=bold cterm=bold guibg=Grey40 ctermbg=NONE ctermfg=NONE
+endif
+
+" detect file type
+filetype on
+filetype plugin on
+filetype indent on
+
+set viminfo='20,\"100,:200,%,n~/.viminfo
+
+set expandtab       " use spaces for tab
+set tabstop=2       " spaces to display for tab
+set shiftwidth=2    " C-indent (cin) width
+set softtabstop=2   " spaces to move typing tab
+set textwidth=74    " Line break after 74 cols of text
+set shortmess=atI   " TODO look up
+set autoindent      " always set autoindenting on
+set copyindent      " copy the previous indentation on autoindenting
+set shiftwidth=4    " number of spaces to use for autoindenting
+set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch       " set show matching parenthesis
+set ignorecase      " ignore case when searching
+set smartcase       " ignore case if search pattern is all lowercase,
+                    "    case-sensitive otherwise
+set smarttab        " insert tabs on the start of a line according to
+                    "    shiftwidth, not tabstop
+set hlsearch        " highlight search terms
+set incsearch       " show search matches as you type
+set ruler           " show <line>,<col> <% file>
+set mouse=a         " enable the mouse
+set history=1000    " remember more commands and search history
+set title           " change the terminal's title
+set visualbell      " don't beep
+set noerrorbells    " don't beep
+set backspace=2     " make backspace work like most other apps
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set iskeyword+=-    " match key-word because if gd thing-name, i want to select the whole thing-name
+set hidden          " change buffer without writing
+set scrolloff=3     " scroll before we hit the bottom
+set wildmode=list:longest   " command autocomplete like a shell
+set laststatus=2    " see the statusline when looking at one file
+set magic           " set magic on, for regular expressions
+set cursorline      " enable current line hilight features
+set autoindent
+set cindent         " autoindent code
+set spelllang=en_us
+set spellfile=~/.vim/spell.en.utf-8.add
+
+set cinkeys=0{,0},0(,0),:,:0#,!^F,o,0,e
+set cinoptions=>s,e0,n-2,f0,{0,}0,^0,L-1,:s,=s,l0,b0,gs,hs,ps,t0,is,+s,c3,C0,/0,(-2s,us,U0,w0,W0,m0,j0,J0,)20,*70,#0
+
+set sessionoptions=
+set sessionoptions+=blank,buffers,curdir,folds,globals,help,localoptions
+set sessionoptions+=options,resize,tabpages,winsize,winpos
+
+" tell it to use an undo file
+set undofile
+
+" set a directory to store the undo history, for example:
+set undodir=$HOME/.vim/undos/
+
+" How many undos
+set undolevels=1000
+
+" number of lines to save for undo
+set undoreload=10000
+
+" swp file and backup path
+set backupdir=$HOME/.vim/swpfiles/
+set directory=$HOME/.vim/swpfiles/
+
+" nice colorful ruler
+" might want: https://github.com/Lokaltog/vim-powerline
+set statusline=
+set statusline+=%{getcwd()}>\
+set statusline+=%1*%t%*\
+set statusline+=%2*[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%*
+set statusline+=%3*%h%m%r%y%*
+set statusline+=%=%4*%c,%l/%L\ %P%*
+
+" Copy to X CLIPBOARD
+map <leader>cb :w !xsel -i -b<CR>
+map <leader>cp :w !xsel -i -p<CR>
+map <leader>cs :w !xsel -i -s<CR>
+
+" Paste from X CLIPBOARD
+map <leader>pb :r!xsel -b<CR>
+map <leader>pp :r!xsel -p<CR>
+map <leader>ps :r!xsel -s<CR>
+
+" Secure modeline options
+let g:secure_modelines_allowed_items = [
+            \ "textwidth",   "tw",
+            \ "softtabstop", "sts",
+            \ "tabstop",     "ts",
+            \ "shiftwidth",  "sw",
+            \ "expandtab",   "et",   "noexpandtab", "noet",
+            \ "filetype",    "ft",
+            \ "foldmethod",  "fdm",
+            \ "readonly",    "ro",   "noreadonly", "noro",
+            \ "rightleft",   "rl",   "norightleft", "norl"
+            \ ]
+
+map <leader>x G:Modeliner<CR>:exe "norm! \<c-o>"<CR>
+
+" Pyclewn
+" Breakpoint at cursor position
+map <leader>bp :exe "Cbreak " . expand("%:p") . ":" . line(".")<CR>
+
+" Value of variable under the cursor
+map <leader>pv :exe "Cprint " . expand("<cword>") <CR>
+
+" syntax hilight
+syntax on
+
+" remap leader (\) to ,
+let mapleader=","
+let g:mapleader=","
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+autocmd BufEnter * :syntax sync fromstart
+"autocmd BufRead *.js set filetype=javascript
+
+" center page on next match
+nnoremap n nzz
+nnoremap N Nzz
+
+" center page on next/previous location
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
+
+" Move the screen with J/K
+nnoremap J <C-e>
+nnoremap K <C-y>
+
+" tn = tabnew, tm = tabmove
+cmap tn tabnew
+cmap tm tabmove
+
+" jump to next/prev row
+nnoremap j gj
+nnoremap k gk
+
+" auto save/load session
+let g:session_autoload = "yes"
+let g:session_autosave = 'yes'
+
+" lustyjuggler map
+nmap <silent> <Leader>j :LustyJuggler<CR>
+
+" Open files with <leader>f
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+
+" insert blank lines
+map <leader>o o<Esc>k
+map <leader>O O<Esc>j
+
+" generate HTML version current buffer using current color scheme
+map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR>
+
+" Move to left tab after closing a tab if possible
+let s:prevtabnum=tabpagenr('$')
+augroup TabClosed
+    autocmd! TabEnter * :if tabpagenr('$')<s:prevtabnum && tabpagenr()>1
+                \       |   tabprevious
+                \       |endif
+                \       |let s:prevtabnum=tabpagenr('$')
+augroup END
+
+" autocmd CursorHold * call Timer()
+" function! Timer()
+"     call feedkeys("f\e")
+"     checktime
+" endfunction
+
+set updatetime=5000  " milliseconds
+
+" Print command output to the current buffer
+function! FileMessage(cmd)
+  redir => message
+  silent execute a:cmd
+  redir END
+  silent put=message
+endfunction
+
+" execute all of the contest of a buffer
+function! EvalBuf()
+  %y"
+  @"
+endfunction
+
+" redirect command output directly to a file
+function! RedirFile(...)
+  if a:0 < 2
+    echo "Only " a:0 " params given - need two"
+    return
+  endif
+
+  let cmd = a:1
+  let file = a:2
+  redir => message
+  silent execute cmd
+  redir END
+  let lines = split(message, '\n')
+  call writefile(lines, file)
+endfunction
+
+command! -nargs=+ RedirFile call RedirFile(<f-args>)
+
+" "A" toggle cwd function
+au VimEnter * :let s:curdir = getcwd()
+function! <sid>AdjustCWD()
+    if getcwd() == s:curdir
+        lcd %:h
+    else
+        exe 'lcd' s:curdir
+    endif
+endfunction
+
+" "B" toggle folding function
+au VimEnter = ;let s:deffold = foldmethod()
+function! <sid>ToggleFold()
+    if foldmethod() == s:deffold
+        set foldmethod=manual
+    else
+        set foldmethod=s:deffold
+    endif
+endfunction
+
+" toggle features that mess up pasting
+map <silent> <F2> :set invpaste<CR>
+
+" toggle line numbers
+map <silent> <F3> :set invnumber<CR>
+
+" toggle hilight search
+map <silent> <F4> :set invhlsearch<CR>:echom invhlsearch<CR>
+
+" "A" toggle the cwd vim was opened in vs the cwd of the file
+map <silent> <F5> :<c-u>call <sid>AdjustCWD()<CR>
+
+" "B" toggle folding option between default and manual
+map <silent> <F6> :<c-u>call <sid>ToggleFold()<CR>
+
+" toggle undotree
+map <silent> <F7> :UndotreeToggle<CR>
+
+" show/Hide hidden Chars
+map <silent> <F12> :set invlist<CR>
+
+let ext_blacklist = ['conf', 'vim']
+
+" show when we go part margins
+augroup show_overflow
+  autocmd!
+  highlight OverLength term=bold cterm=bold guibg=#ce4e4e
+  autocmd BufEnter *
+    \ if (len(&ft) == 0 || len(&ft) > 0 && index(ext_blacklist, &ft) < 0) |
+    \   match OverLength /\%>80v.\+/ |
+    \ endif
+augroup END
+
+" folding
+set foldmethod=syntax
+set foldlevelstart=1
+set foldopen=block,hor,mark,percent,quickfix,tag  " what movements open folds
+let javaScript_fold=1                             " JavaScript
+let perl_fold=1                                   " Perl
+let php_folding=1                                 " PHP
+let r_syntax_folding=1                            " R
+let ruby_fold=1                                   " Ruby
+let sh_fold_enabled=1                             " sh
+let vimsyn_folding='af'                           " Vim script
+let xml_syntax_folding=1                          " XML
+
+" CSS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css set sw=2
+autocmd FileType css set ts=2
+autocmd FileType css set sts=2
+
+" JavaScript
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript set sw=4
+autocmd FileType javascript set ts=4
+autocmd FileType javascript set sts=4
+
+"set <F1>=[11~
+"set <F2>=[12~
+"set <F3>=[13~
+"set <F4>=[14~
+"set <F5>=[15~
+"set <F6>=[17~
+"set <F7>=[18~
+"set <F8>=[19~
+"set <F9>=[20~
+"set <F10>=[21~
+"set <F11>=[23~
+"set <F12>=[24~
+
+" vim: set et fenc=utf-8 ff=unix sts=2 sw=4 ts=2 :

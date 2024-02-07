@@ -1,0 +1,24 @@
+
+URxvt*foreground: Green
+URxvt*background: Black
+URxvt*buffered: false
+URxvt*visualBell: true
+
+!! URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+!! URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+
+URxvt.letterSpace: -5
+URxvt*font: xft:terminus:pixelsize=15:antialias=true
+URxvt*boldFont: xft:terminus:bold:pixelsize=15:antialias=true
+
+URxvt*depth: 32
+URxvt*saveLines: 0
+URxvt*scrollBar: False
+URxvt*borderless: 1
+
+URxvt*perl-ext-common: default,clipboard
+
+URxvt.perl-ext-common:  default,matcher
+URxvt.urlLauncher:      /usr/bin/opera
+URxvt.matcher.button:   1
+
