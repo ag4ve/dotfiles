@@ -1,0 +1,33 @@
+
+# Put this as early on as possible to fully utilize
+# trace zshrc:
+# zsh -o sourcetrace
+
+# overload alias and print where it came from
+# function alias()
+# { 
+#     if [[ "$@" == *"grep"* ]] ; then
+#         print -r - "$funcfiletrace[1]: $0 $@"
+#     fi
+#     builtin $0 "$@"
+# }
+
+# Auto run in tmux - dangerous
+# If we're not in tmux, get there
+#if [ -z $TMUX ] ; then
+#    tmux
+#fi
+
+#if [[ -n "$SSH_AUTH_SOCK" && -S "$SSH_AUTH_SOCK" ]]; then
+#  echo "export SSH_AUTH_SOCK=\"$SSH_AUTH_SOCK\"" > $HOME/.ssh/agent.sh
+#fi
+#source $HOME/.ssh/agent.sh 2>/dev/null
+
+# Put this at the end to exit out of the terminal when closing tmux
+# If we're still not in a tmux session, exit - close the session when we close the last tmux window
+# I think this is dangerous and I should find a better way.
+#if [ -z $TMUX ] ; then
+#    echo "TMUX: $TMUX"
+#    exit
+#fi
+

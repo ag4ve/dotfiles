@@ -1,0 +1,55 @@
+[".zsh/zgemon"]
+    type = "git-repo"
+    url = "https://github.com/jandamm/zgenom.git"
+    refreshPeriod = "168h"
+[".zsh/jpb.zshplugin"]
+    type = "git-repo"
+    url = "https://github.com/unixorn/jpb.zshplugin.git"
+    refreshPeriod = "168h"
+[".zsh/fast-syntax-highlighting"]
+    type = "git-repo"
+    url = "https://github.com/zdharma-continuum/fast-syntax-highlighting.git"
+    refreshPeriod = "168h"
+[".zsh/zsh-history-substring-search"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-history-substring-search.git"
+    refreshPeriod = "168h"
+[".zsh/git-extra-commands"]
+    type = "git-repo"
+    url = "https://github.com/unixorn/git-extra-commands.git"
+    refreshPeriod = "168h"
+[".zsh/fzf-zsh-plugin"]
+    type = "git-repo"
+    url = "https://github.com/unixorn/fzf-zsh-plugin.git"
+    refreshPeriod = "168h"
+[".zsh/git-it-on.zsh"]
+    type = "git-repo"
+    url = "https://github.com/peterhurford/git-it-on.zsh.git"
+    refreshPeriod = "168h"
+[".zsh/zsh-completions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-completions.git"
+    refreshPeriod = "168h"
+[".zsh/zsh-completion-generator"]
+    type = "git-repo"
+    url = "https://github.com/RobSis/zsh-completion-generator.git"
+    refreshPeriod = "168h"
+[".zsh/zsh-autosuggestions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-autosuggestions.git"
+    refreshPeriod = "168h"
+
+[".zsh/asdf"]
+    type = "git-repo"
+    url = "https://github.com/asdf-vm/asdf.git"
+    refreshPeriod = "168h"
+
+[".zsh/misc-scripts"]
+    type = "git-repo"
+    url = "https://github.com/ag4ve/misc-scripts.git"
+    refreshPeriod = "168h"
+[".zsh/bash-libs"]
+    type = "git-repo"
+    url = "https://github.com/ag4ve/bash-libs.git"
+    refreshPeriod = "168h"
+

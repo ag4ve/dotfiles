@@ -1,0 +1,3 @@
+[edit]
+  command = "/home/srwilson/.pyenv/shims/nvr"
+  args = ["--remote-tab"]

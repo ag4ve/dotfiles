@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if ! type cargo >/dev/null 2>&1; then
+  sudo apt install cargo
+fi
+
+# eza - A modern, maintained replacement for ls.
+cargo install eza
+
+# NeoVim version manager
+cargo install bob-nvim
+

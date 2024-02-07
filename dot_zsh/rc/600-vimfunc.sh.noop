@@ -1,0 +1,80 @@
+# Now use neovim with nvr
+
+# make vim use or initialize a session with a new tab unless...
+# alias this so that we can do \vim to get to the exe
+# vimfunc () {
+#     local cmd
+#     local servername
+#     local remote
+#     local -a misc
+#     local version
+#     local username=$(echo $USER | tr "[:lower:]" "[:upper:]")
+#     local opt_ex="^-"
+# 
+#     while [ $# -gt 0 ] ; do
+#         case "$1" in
+#             --servername)
+#                 if [[ $2 =~ $opt_ex ]] ; then
+#                     echo "Servername option without a parameter. Doing nothing."
+#                     return
+#                 else
+#                     servername="$2"
+#                     shift
+#                 fi
+#                 ;;
+#             --remote*)
+#                 if [ -z $remote ] ; then
+#                     if [[ $2 =~ $opt_ex ]] ; then
+#                         remote="$1"
+#                     else
+#                         remote="$1 $2"
+#                         shift
+#                     fi
+#                 else
+#                     # I'll deal with this properly if it is reasonable to take multiple --remote* things
+#                     echo "Should not call two remote options at once. Doing nothing."
+#                     return
+#                 fi
+#                 ;;
+#             --version*)
+#                 version="1"
+#                 ;;
+#             *)
+#                 misc+=("$1")
+#                 ;;
+#         esac
+#         shift
+#     done
+# 
+#     cmd="vim -v"
+# 
+#     if [ ! -z $servername ] ; then
+#         cmd="$cmd --servername $servername"
+#     else
+#         cmd="$cmd --servername $username"
+#     fi
+# 
+#     if [ -z $misc ] && [ -z $remote ] ; then
+#         # list version if we asked for that
+#         if [ ! -z version ] ; then
+#             cmd="$cmd --version"
+#         fi       
+# 
+#         ${=cmd}
+# 
+#         return
+#     fi
+# 
+#     if [ ! -z $remote ] ; then
+#         cmd="$cmd $remote $misc"
+#     else
+#         cmd="$cmd --remote-tab $misc"
+#     fi
+# 
+#     echo $cmd
+#     command ${=cmd}
+# 
+#     return
+# }
+#alias vim='vimfunc'
+
