@@ -26,7 +26,7 @@ _Z_NO_RESOLVE_SYMLINKS=1
 
 # Disable the ASCII DC3 stop flow control CTRL+S
 # REMEMBER - add this to all shell configs no matter what !!!!
-stty -ixon
+[[ $- == *i* ]] && stty -ixon
 
 compdef fwk=ssh
 compdef sshs=ssh
