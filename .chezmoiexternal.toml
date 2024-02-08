@@ -1,7 +1,14 @@
-[".zsh/zgemon"]
+# zsh plugin manager
+[".zsh/zsh-snap"]
     type = "git-repo"
-    url = "https://github.com/jandamm/zgenom.git"
+    url = "https://github.com/marlonrichert/zsh-snap.git"
     refreshPeriod = "168h"
+[".zsh/ohmyzsh"]
+    type = "git-repo"
+    url = "https://github.com/ohmyzsh/ohmyzsh.git"
+    refreshPeriod = "168h"
+
+# zsh plugins
 [".zsh/jpb.zshplugin"]
     type = "git-repo"
     url = "https://github.com/unixorn/jpb.zshplugin.git"
@@ -44,6 +51,7 @@
     url = "https://github.com/asdf-vm/asdf.git"
     refreshPeriod = "168h"
 
+# ag4ve
 [".zsh/misc-scripts"]
     type = "git-repo"
     url = "https://github.com/ag4ve/misc-scripts.git"
@@ -52,4 +60,125 @@
     type = "git-repo"
     url = "https://github.com/ag4ve/bash-libs.git"
     refreshPeriod = "168h"
+
+# buildkit
+{{ $bkVersion := "0.12.5" -}}
+[".config/buildkit/bin"]
+    type = "archive"
+    url = "https://github.com/moby/buildkit/releases/latest/download/buildkit-v{{ $bkVersion }}.linux-amd64.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    include = ["bin/buildkit*"]
+
+# lima
+# {{ $limaVersion := "0.20.1" -}}
+# [".config/lima"]
+#     type = "archive"
+#     url = "https://github.com/lima-vm/lima/releases/latest/download/lima-{{ $limaVersion }}-Linux-x86_64.tar.gz"
+#     exact = true
+#     refreshPeriod = "168h"
+
+# regclient
+["bin/regsync"]
+    type = "file"
+    url = "https://github.com/regclient/regclient/releases/latest/download/regsync-linux-amd64"
+    refreshPeriod = "168h"
+["bin/regctl"]
+    type = "file"
+    url = "https://github.com/regclient/regclient/releases/latest/download/regctl-linux-amd64"
+    refreshPeriod = "168h"
+["bin/regbot"]
+    type = "file"
+    url = "https://github.com/regclient/regclient/releases/latest/download/regbot-linux-amd64"
+    refreshPeriod = "168h"
+
+# go-containerregistry
+["bin/crane"]
+    type = "archive-file"
+    url = "https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz"
+    refreshPeriod = "168h"
+    path = "crane"
+["bin/gcrane"]
+    type = "archive-file"
+    url = "https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz"
+    refreshPeriod = "168h"
+    path = "gcrane"
+["bin/krane"]
+    type = "archive-file"
+    url = "https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz"
+    refreshPeriod = "168h"
+    path = "krane"
+
+# manifest tools
+{{ $mtVersion := "2.1.5" -}}
+["bin/manifest-tool"]
+    type = "archive-file"
+    url = "https://github.com/estesp/manifest-tool/releases/latest/download/binaries-manifest-tool-{{ $mtVersion }}.tar.gz"
+    refreshPeriod = "168h"
+    path = "manifest-tool-linux-amd64"
+
+# umoci
+["bin/umoci"]
+    type = "file"
+    url = "https://github.com/opencontainers/umoci/releases/latest/download/umoci.amd64"
+    refreshPeriod = "168h"
+
+# stacker
+["bin/stacker"]
+    type = "file"
+    url = "https://github.com/project-stacker/stacker/releases/latest/download/stacker"
+    refreshPeriod = "168h"
+
+# zb/zli/zot/zxp
+["bin/zb"]
+    type = "file"
+    url = "https://github.com/project-zot/zot/releases/latest/download/zb-linux-amd64"
+    refreshPeriod = "168h"
+["bin/zli"]
+    type = "file"
+    url = "https://github.com/project-zot/zot/releases/latest/download/zli-linux-amd64"
+    refreshPeriod = "168h"
+["bin/zot"]
+    type = "file"
+    url = "https://github.com/project-zot/zot/releases/latest/download/zot-linux-amd64"
+    refreshPeriod = "168h"
+["bin/zxp"]
+    type = "file"
+    url = "https://github.com/project-zot/zot/releases/latest/download/zxp-linux-amd64"
+    refreshPeriod = "168h"
+
+# melange
+{{ $melangeVersion := "0.5.10" -}}
+["bin/melange"]
+    type = "archive-file"
+    url = "https://github.com/chainguard-dev/melange/releases/latest/download/melange_{{ $melangeVersion }}_linux_amd64.tar.gz"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    path = "melange"
+
+# apko
+{{ $apkoVersion := "0.13.2" -}}
+["bin/apko"]
+    type = "archive-file"
+    url = "https://github.com/chainguard-dev/apko/releases/latest/download/apko_{{ $apkoVersion }}_linux_amd64.tar.gz"
+    stripComponents = 1
+    refreshPeriod = "168h"
+    path = "apko"
+
+# grype
+{{ $grypeVersion := "0.74.5" -}}
+["bin/grype"]
+    type = "archive-file"
+    url = "https://github.com/anchore/grype/releases/latest/download/grype_{{ $grypeVersion }}_linux_amd64.tar.gz"
+    refreshPeriod = "168h"
+    path = "grype"
+
+# dive
+{{ $ageVersion := "0.12.0" -}}
+["bin/dive"]
+    type = "archive-file"
+    url = "https://github.com/wagoodman/dive/releases/latest/download/dive_{{ $ageVersion }}_linux_amd64.tar.gz"
+    refreshPeriod = "168h"
+    path = "dive"
 
