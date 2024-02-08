@@ -68,7 +68,7 @@ srcplugins=(
 )
 
 for plugin in ${srcplugins[@]}; do
-  znap source "$HOME/.zsh/$plugin"
+  znap source "$plugin"
 done
 
 # znap function _pyenv pyenv              'eval "$( pyenv init - --no-rehash )"'
