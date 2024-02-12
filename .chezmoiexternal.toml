@@ -88,14 +88,17 @@
     type = "file"
     url = "https://github.com/regclient/regclient/releases/latest/download/regsync-linux-amd64"
     refreshPeriod = "168h"
+    executable = true
 ["bin/regctl"]
     type = "file"
     url = "https://github.com/regclient/regclient/releases/latest/download/regctl-linux-amd64"
     refreshPeriod = "168h"
+    executable = true
 ["bin/regbot"]
     type = "file"
     url = "https://github.com/regclient/regclient/releases/latest/download/regbot-linux-amd64"
     refreshPeriod = "168h"
+    executable = true
 
 # go-containerregistry
 ["bin/crane"]
@@ -127,30 +130,36 @@
     type = "file"
     url = "https://github.com/opencontainers/umoci/releases/latest/download/umoci.amd64"
     refreshPeriod = "168h"
+    executable = true
 
 # stacker
 ["bin/stacker"]
     type = "file"
     url = "https://github.com/project-stacker/stacker/releases/latest/download/stacker"
     refreshPeriod = "168h"
+    executable = true
 
 # zb/zli/zot/zxp
 ["bin/zb"]
     type = "file"
     url = "https://github.com/project-zot/zot/releases/latest/download/zb-linux-amd64"
     refreshPeriod = "168h"
+    executable = true
 ["bin/zli"]
     type = "file"
     url = "https://github.com/project-zot/zot/releases/latest/download/zli-linux-amd64"
     refreshPeriod = "168h"
+    executable = true
 ["bin/zot"]
     type = "file"
     url = "https://github.com/project-zot/zot/releases/latest/download/zot-linux-amd64"
     refreshPeriod = "168h"
+    executable = true
 ["bin/zxp"]
     type = "file"
     url = "https://github.com/project-zot/zot/releases/latest/download/zxp-linux-amd64"
     refreshPeriod = "168h"
+    executable = true
 
 # melange
 {{ $melangeVersion := "0.5.10" -}}
@@ -215,6 +224,7 @@
     type = "file"
     url = "https://github.com/open-policy-agent/opa/releases/latest/download/opa_linux_amd64"
     refreshPeriod = "168h"
+    executable = true
 
 # https://github.com/romkatv/nerd-fonts
 # Melso font
