@@ -178,6 +178,14 @@
     refreshPeriod = "168h"
     path = "grype"
 
+# syft
+{{ $syftVersion := "0.104.0" -}}
+["bin/syft"]
+    type = "archive-file"
+    url = "https://github.com/anchore/syft/releases/latest/download/syft_{{ $syftVersion }}_linux_amd64.tar.gz"
+    refreshPeriod = "168h"
+    path = "syft"
+
 # dive
 {{ $diveVersion := "0.12.0" -}}
 ["bin/dive"]
@@ -193,6 +201,20 @@
     url = "https://github.com/junegunn/fzf/releases/latest/download/fzf-{{ $fzfVersion }}-linux_amd64.tar.gz"
     refreshPeriod = "168h"
     path = "fzf"
+
+# nerdctl
+{{ $nerdVersion := "1.7.3" -}}
+["bin/nerdctl"]
+    type = "archive-file"
+    url = "https://github.com/containerd/nerdctl/releases/latest/download/nerdctl-{{ $nerdVersion }}-linux-amd64.tar.gz"
+    refreshPeriod = "168h"
+    path = "nerdctl"
+
+# OPA
+["bin/opa"]
+    type = "file"
+    url = "https://github.com/open-policy-agent/opa/releases/latest/download/opa_linux_amd64"
+    refreshPeriod = "168h"
 
 # https://github.com/romkatv/nerd-fonts
 # Melso font
