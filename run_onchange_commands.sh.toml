@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Ensure all fonts are included
+fc-cache -fv
+
+# Create a terminfo for alacritty
+cd ~/gits/alacritty && \
+  tic -xe alacritty,alacritty-direct extra/alacritty.info

@@ -1,5 +1,5 @@
 
-export TERM=screen-256color
+export TERM=alacritty
 export TZ=America/New_York
 export KEYTIMEOUT=1
 export EDITOR="nvr --remote-tab"

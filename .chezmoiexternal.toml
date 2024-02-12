@@ -194,3 +194,44 @@
     refreshPeriod = "168h"
     path = "fzf"
 
+# https://github.com/romkatv/nerd-fonts
+# Melso font
+{{ $fontVer := "3.1.1" -}}
+[".local/share/fonts/melso"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ $fontVer }}/Meslo.zip"
+    exact = true
+    refreshPeriod = "168h"
+# Noto font
+{{ $melsoVer := "3.1.1" -}}
+[".local/share/fonts/noto"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ $fontVer }}/Noto.zip"
+    exact = true
+    refreshPeriod = "168h"
+# Terminus font
+{{ $melsoVer := "3.1.1" -}}
+[".local/share/fonts/terminus"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ $fontVer }}/Terminus.zip"
+    exact = true
+    refreshPeriod = "168h"
+
+# Lots of icons
+# Another repo with lots of icons - seems unmaintained and misc licenses
+#    url = "https://github.com/ohmyzsh/ohmyzsh.git"
+[".config/svg-icons"]
+    type = "git-repo"
+    url = "https://github.com/tabler/tabler-icons.git"
+    refreshPeriod = "168h"
+
+# Alacritty repos
+["gits/alacritty"]
+    type = "git-repo"
+    url = "https://github.com/alacritty/alacritty.git"
+    refreshPeriod = "168h"
+# alacritty themes
+[".config/alacritty/themes"]
+    type = "git-repo"
+    url = "https://github.com/alacritty/alacritty-theme"
+    refreshPeriod = "168h"
