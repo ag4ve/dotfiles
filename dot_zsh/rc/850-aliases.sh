@@ -32,6 +32,8 @@ alias rmcontrol="rm ~/.ssh/control-*"
 alias rekey="killall ssh-agent; ssh-add -s /usr/local/lib/tokendPKCS11.so"
 #alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias bat="batcat --pager less"
+# Temporary alias for piper-tts since it doesn't work with python 3.12
+alias alias piper="$PYENV_ROOT/versions/3.11.8/bin/piper"
 alias speakin="piper --download-dir $HOME/.config/piper --data-dir $HOME/.config/piper --model en_GB-alba-medium --output_raw | aplay -f S16_LE -c1 -r24000"
 alias speakclip="xsel | speakin"
 

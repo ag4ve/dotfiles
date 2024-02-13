@@ -267,3 +267,16 @@
     type = "git-repo"
     url = "https://github.com/alacritty/alacritty-theme"
     refreshPeriod = "168h"
+
+# Python
+# pyenv
+["..pyenv"]
+    type = "git-repo"
+    url = "https://github.com/pyenv/pyenv.git"
+    refreshPeriod = "168h"
+# pyenv-virtualenv plugin
+["..pyenv/plugins/pyenv-virtualenv"]
+    type = "git-repo"
+    url = "https://github.com/pyenv/pyenv-virtualenv.git"
+    refreshPeriod = "168h"
+

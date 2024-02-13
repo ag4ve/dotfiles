@@ -1,0 +1,40 @@
+#!/bin/bash
+
+{{ $pyVersion := "3.12.2" -}}
+
+sudo apt update
+sudo apt install -y \
+  build-essential \
+  libssl-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  curl \
+  libncursesw5-dev \
+  xz-utils \
+  tk-dev \
+  libxml2-dev \
+  libxmlsec1-dev \
+  libffi-dev \
+  liblzma-dev
+
+cd ~/.pyenv && \
+  src/configure && \
+  make -C src
+
+pyenv update
+
+# Show versions
+# pyenv install -l | bat
+
+pyenv install --skip-existing {{ $pyVersion }}
+pyenv global {{ $pyVersion }}
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+python -m ensurepip --upgrade
+
+pip install -r {{ .chezmoi.sourceDir -}}/python-requirements.txt
+

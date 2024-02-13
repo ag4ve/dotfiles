@@ -2,3 +2,4 @@ README.md
 template_files/
 template_files/**
 chezmoi*
+python-requirements.txt
