@@ -1,0 +1,33 @@
+
+[color]
+  ui = true
+[color "diff"]
+  plain = normal
+  meta = bold
+  frag = cyan red
+  old = red
+  new = green blue bold
+  commit = yellow
+  whitespace = normal red
+[color "branch"]
+  current = green
+  local = normal
+  remote = red
+  plain = normal
+[color "status"]
+  header = normal red
+  added = white bold
+  updated = green bold
+  changed = red bold
+  untracked = yellow bold
+  nobranch = red bold
+[color "grep"]
+  match = normal
+[color "interactive"]
+  prompt = normal
+  header = normal red bold
+  help = normal
+  error = normal
+[color "log"]
+  header = normal red bold
+

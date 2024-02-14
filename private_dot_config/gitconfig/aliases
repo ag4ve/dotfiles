@@ -1,0 +1,30 @@
+
+[alias]
+  treelog = log --oneline --graph --decorate --all
+# From commits into a directory(1) create and apply them to a branch(2)
+#  branchdir = "!f() { \
+#    git branch \"$2\" && \
+#    git filter-branch --subdirectory-filter \"$1\" -- \"$2\" && \
+#    git filter-branch --tree-filter \"mkdir -p \"$1\" && \
+#      find -maxdepth 1 \
+#        | grep -vE \'^(\\.|\\.git|\./\"${1%%/*}\"\' \
+#        | xargs -i{} mv {} \"$1\" \
+#    \"; }; \
+#  f"
+  reapdir = "!f() { \
+    if [ -d \"$1\" ] ; then \
+      git filter-branch --prune-empty --subdirectory-filter \"$1\" -- --all && \
+      git gc --aggressive && \
+      git prune && \
+      git filter-branch -f --prune-empty --index-filter '\
+        git ls-files -s \
+          | sed \"s-\\t-&$1-\" \
+          | GIT_INDEX_FILE=$GIT_INDEX_FILE.new git update-index --index-info && \
+            mv $GIT_INDEX_FILE.new $GIT_INDEX_FILE'; \
+    else \
+      echo \"No directory $1\"; \
+    fi; }; \
+  f"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(bold green)%GS [%G?]%Creset' --abbrev-commit --date=relative
+  tg = for-each-ref --format='%(refname:short) %(taggerdate) %(subject) %(body)' refs/tags
+

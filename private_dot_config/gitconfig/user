@@ -1,0 +1,14 @@
+
+[user]
+  name = Shawn Wilson
+  email = srwilson@ioswitch.dev
+  signingkey = B8AB96D52BF0B6D4
+#  signingkey = 846FF490
+[commit]
+  status = true
+  gpgsign = true
+[gpg]
+  program = gpg2
+#[credential]
+#  helper = osxkeychain
+
