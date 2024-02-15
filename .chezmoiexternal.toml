@@ -162,7 +162,7 @@
     executable = true
 
 # melange
-{{ $melangeVersion := "0.5.10" -}}
+{{ $melangeVersion := "0.6.1" -}}
 ["bin/melange"]
     type = "archive-file"
     url = "https://github.com/chainguard-dev/melange/releases/latest/download/melange_{{ $melangeVersion }}_linux_amd64.tar.gz"
@@ -180,7 +180,7 @@
     path = "apko"
 
 # grype
-{{ $grypeVersion := "0.74.5" -}}
+{{ $grypeVersion := "0.74.6" -}}
 ["bin/grype"]
     type = "archive-file"
     url = "https://github.com/anchore/grype/releases/latest/download/grype_{{ $grypeVersion }}_linux_amd64.tar.gz"

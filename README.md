@@ -34,4 +34,5 @@ This looks promising as well https://github.com/hallettj/home.nix/tree/main/home
 
 * I should probably configure bob to automatically install the latest version of neovim
 * PTPython isn't loading the modules from the config into the REPL
+* Should probably not use latest in chezmoiexternal github paths as some releases just have versioned files and using latest breaks that
 
