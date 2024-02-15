@@ -3,6 +3,9 @@ return {
   -- Misc plugins
   {
     'goolord/alpha-nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
     config = function() require('alpha').setup(require('alpha.themes.startify').config) end,
   },
   { 'simrat39/symbols-outline.nvim', config = function() require('symbols-outline').setup() end },

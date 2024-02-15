@@ -6,7 +6,9 @@ return {
     'nvim-telescope/telescope-file-browser.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     'debugloop/telescope-undo.nvim', -- debugloop is original dev
-    'nvim-telescope/telescope-ui-select.nvim'
+    'nvim-telescope/telescope-ui-select.nvim',
+    'rcarriga/nvim-notify',
+    'gbprod/yanky.nvim'
   },
   init = function()
     vim.api.nvim_create_autocmd('BufEnter', {
