@@ -27,7 +27,7 @@ chezmoi apply -v
 * The color scheme for the tabs are now easier to read.
 * Started using Lazy plugin manager for NeoVim plugins and migrated most NeoVim plugins from Vim Plug into Lazy.
 * Most of the Lazy settings are from: https://github.com/pynappo/dotfiles/tree/master/.config/nvim
-This looks promising as well https://github.com/hallettj/dot-vim/tree/master/home/.config/nvim
+This looks promising as well https://github.com/hallettj/home.nix/tree/main/home-manager/features/neovim/nvim-config
 * I have yet to do much customization (other than removing some things) to the Lazy plugins
 
 ## TODO
