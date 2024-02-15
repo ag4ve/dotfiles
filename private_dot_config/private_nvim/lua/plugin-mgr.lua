@@ -105,7 +105,8 @@ local lazy_opts = {
     },
   },
   readme = {
-    root = vim.fn.stdpath('state') .. '/lazy/readme',
+    -- root = vim.fn.stdpath('state') .. '/lazy/readme',
+    root = vim.fn.expand('~/.local/share/chezmoi/private_dot_config/private_nvim/readme.md'),
     files = { 'README.md' },
     -- only generate markdown helptags for plugins that dont have docs
     skip_if_doc_exists = true,
