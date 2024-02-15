@@ -20,72 +20,29 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Bundle stuff
-" let Vundle manage Vundle, required
-" Plugin 'gmarik/Vundle.vim'
 Plug 'flazz/vim-colorschemes'
 
-" If not in vimdiff
+" If in vimdiff don't load plugins
 if &diff
 
 else
-  " Plug 'git://git.wincent.com/command-t.git'
-  " Plug 'benmills/vimux'
-  Plug 'bogado/file-line'
-  Plug 'ciaranm/securemodelines'
-  Plug 'c9s/perlomni.vim'
-  " Plug 'dahu/SearchParty'
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'jamessan/vim-gnupg'
-  Plug 'kshenoy/vim-signature'
-  Plug 'marcweber/vim-addon-mw-utils'
-  Plug 'mbbill/undotree'
-  Plug 'nvie/vim-togglemouse'
-  " Plug 'pangloss/vim-javascript'
-  Plug 'rking/ag.vim'
-  Plug 'scrooloose/syntastic'
-  " Plug 'Shougo/vimproc.vim'
-  " Plug 'Shougo/vimshell.vim'
-  Plug 'Shougo/unite.vim'
-  Plug 'sjbach/lusty'
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'tpope/vim-abolish'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-pathogen'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-speeddating'
-  Plug 'tpope/vim-surround'
-  " Plug 'Valloric/YouCompleteMe'
-  Plug 'vim-scripts/Align'
-  " Plug 'vim-scripts/bash-support.vim'
-  " Plug 'vim-scripts/perl-support.vim'
-  " Plug 'vim-scripts/python_match.vim'
-  " Plug 'vim-scripts/Modeliner'
-  Plug 'vim-scripts/taglist.vim'
-  " Plug 'vim-utils/vim-man'
-  Plug 'wojtekmach/vim-rename'
-  " Plug 'xolox/vim-misc'
-  " Plug 'xolox/vim-session'
-  " Plug 'xolox/vim-shell'
+  Plug 'bogado/file-line'								" Open a file at a line number with <file>:<num>
+  Plug 'ciaranm/securemodelines'				" Automatically add/use modeline. TODO Replace
+  Plug 'jamessan/vim-gnupg'							" Encrypt/decrypt gpg files
+  Plug 'kshenoy/vim-signature'					" Handle marks
+  Plug 'mbbill/undotree'								" Visualize the undo tree
+  Plug 'mg979/vim-visual-multi'					" Type with multiple cursors
+  Plug 'tpope/vim-abolish' 							" handle word variations
+  Plug 'tpope/vim-fugitive'							" git in vim
+  Plug 'tpope/vim-repeat'								" Library to expand the use of '.'
+  Plug 'tpope/vim-speeddating'					" C-A/C-X move time forward/backward
+  Plug 'vim-scripts/Align'							" Align a block
+  Plug 'wojtekmach/vim-rename'					" Rename the file
   if has('nvim')
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'mfussenegger/nvim-dap'
-    Plug 'rmagatti/auto-session'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    Plug 'nvim-treesitter/completion-treesitter'
-    Plug 'L3MON4D3/LuaSnip'
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'saadparwaiz1/cmp_luasnip'
-    Plug 'rafamadriz/friendly-snippets'
-    Plug 'neovim/nvim-lspconfig'
-    " Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
-    " Plug 'ray-x/navigator.lua'
-    Plug 'williamboman/mason.nvim'
-    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'rmagatti/auto-session'				" Save/load a session
+    " Plug 'rafamadriz/friendly-snippets'
+    " Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' } " lua windowing
+    " Plug 'ray-x/navigator.lua' 					" Code analysis
   endif
 endif
 
@@ -93,16 +50,20 @@ endif
 "call vundle#end()            " required
 call plug#end()
 
+highlight TabLineFill ctermfg=DarkGreen ctermbg=LightGreen
+highlight TabLineSel ctermfg=Red ctermbg=LightYellow
+highlight TabLine ctermfg=Black ctermbg=Brown
+
 if &diff
   colorscheme zen
-  hi CursorLine term=bold cterm=bold guibg=White ctermbg=NONE ctermfg=NONE
+  highlight CursorLine term=bold cterm=bold guibg=White ctermbg=NONE ctermfg=NONE
 else
   "colorscheme symfony
   "colorscheme peaksea
   colorscheme inkpot
 
   " set current line text bold and current line number color
-  hi CursorLine term=bold cterm=bold guibg=Grey40 ctermbg=NONE ctermfg=NONE
+  highlight CursorLine term=bold cterm=bold guibg=Grey40 ctermbg=NONE ctermfg=NONE
 endif
 
 " detect file type
@@ -181,16 +142,6 @@ set statusline+=%1*%t%*\
 set statusline+=%2*[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%*
 set statusline+=%3*%h%m%r%y%*
 set statusline+=%=%4*%c,%l/%L\ %P%*
-
-" Copy to X CLIPBOARD
-map <leader>cb :w !xsel -i -b<CR>
-map <leader>cp :w !xsel -i -p<CR>
-map <leader>cs :w !xsel -i -s<CR>
-
-" Paste from X CLIPBOARD
-map <leader>pb :r!xsel -b<CR>
-map <leader>pp :r!xsel -p<CR>
-map <leader>ps :r!xsel -s<CR>
 
 " Secure modeline options
 let g:secure_modelines_allowed_items = [

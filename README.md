@@ -19,3 +19,19 @@ I bring in my misc scripts repos as this contains scripts I've written (that I p
 git clone https://github.com/ag4ve/dotfiles ~/.local/share/chezmoi
 chezmoi apply -v
 
+
+### Vim setup
+
+* I'm keeping my .vimrc in tact (and not converting it) so that it works with classic vim.
+* I removed some old plugins and documented what the others do.
+* The color scheme for the tabs are now easier to read.
+* Started using Lazy plugin manager for NeoVim plugins and migrated most NeoVim plugins from Vim Plug into Lazy.
+* Most of the Lazy settings are from: https://github.com/pynappo/dotfiles/tree/master/.config/nvim
+This looks promising as well https://github.com/hallettj/dot-vim/tree/master/home/.config/nvim
+* I have yet to do much customization (other than removing some things) to the Lazy plugins
+
+## TODO
+
+* I should probably configure bob to automatically install the latest version of neovim
+* PTPython isn't loading the modules from the config into the REPL
+
