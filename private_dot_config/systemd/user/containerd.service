@@ -1,0 +1,23 @@
+[Unit]
+Description=containerd (Rootless)
+
+[Service]
+Environment=PATH=/home/srwilson/bin:/sbin:/usr/sbin:/home/srwilson/.pyenv/plugins/pyenv-virtualenv/shims:/home/srwilson/.pyenv/shims:/home/srwilson/.asdf/shims:/home/srwilson/.asdf/bin:/home/srwilson/bin:/home/srwilson/.local/bin:/home/srwilson/.rvm/bin:/home/srwilson/.pyenv/bin:/home/srwilson/gits/bash-libs:/var/lib/snapd/snap/bin:/usr/local/ftimes/bin:/home/srwilson/.tfenv/bin:/home/srwilson/.arkade/bin:/snap/bin:/opt/android-sdk-update-manager/platform-tools:/usr/local/texlive/2015/bin/x86_64-linux:/etc/alternatives:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+Environment=CONTAINERD_ROOTLESS_ROOTLESSKIT_FLAGS=
+ExecStart=/home/srwilson/bin/containerd-rootless.sh
+ExecReload=/bin/kill -s HUP $MAINPID
+TimeoutSec=0
+RestartSec=2
+Restart=always
+StartLimitBurst=3
+StartLimitInterval=60s
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+TasksMax=infinity
+Delegate=yes
+Type=simple
+KillMode=mixed
+
+[Install]
+WantedBy=default.target
