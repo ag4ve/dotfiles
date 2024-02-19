@@ -19,6 +19,8 @@
 [diff]
   renames = copies
   mnemonicprefix = true
+[diff "json"]
+  textconv = jq -r '.'
 [branch]
   autosetupmerge = true
 [rerere]
