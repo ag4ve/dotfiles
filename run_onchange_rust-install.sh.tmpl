@@ -1,16 +1,19 @@
 #!/bin/bash
 
 if ! type cargo >/dev/null 2>&1; then
-  sudo apt install cargo
+  rustup-init -y --no-modify-path
 fi
 
-# eza - A modern, maintained replacement for ls.
+# cargo current version
+cargo install --locked cargo
+
+# eza - ls replacement
 cargo install eza
 
 # NeoVim version manager
 cargo install bob-nvim
 
-# Difftastic
+# Difftastic - diff with tree-sitter language descriptions
 cargo install --locked difftastic
 
 # fd - find in rust
@@ -19,15 +22,21 @@ cargo install fd-find
 # dust - du replacement
 cargo install --locked du-dust
 
-# ripgrep
+# ripgrep - faster grep
 cargo install ripgrep
 
-# alacritty
+# alacritty - terminal emulator
 cargo install --locked du-dust
 
-# bottom
+# bottom - top like system monitor utility
 cargo install --locked bottom
 
 # git delta
 cargo install --locked git-delta
+
+# podlet - generate systemd quadlets
+cargo install --locked podlet
+
+# cross - cross compiler
+cargo install cross
 
