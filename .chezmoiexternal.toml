@@ -76,7 +76,7 @@
 {{ $bkVersion := "0.12.5" -}}
 [".config/buildkit/bin"]
     type = "archive"
-    url = "https://github.com/moby/buildkit/releases/latest/download/buildkit-v{{ $bkVersion }}.linux-amd64.tar.gz"
+    url = "https://github.com/moby/buildkit/releases/download/v{{ $bkVersion }}/buildkit-v{{ $bkVersion }}.linux-amd64.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
@@ -86,7 +86,7 @@
 # {{ $limaVersion := "0.20.1" -}}
 # [".config/lima"]
 #     type = "archive"
-#     url = "https://github.com/lima-vm/lima/releases/latest/download/lima-{{ $limaVersion }}-Linux-x86_64.tar.gz"
+#     url = "https://github.com/lima-vm/lima/releases/download/{{ $limaVersion }}/lima-{{ $limaVersion }}-Linux-x86_64.tar.gz"
 #     exact = true
 #     refreshPeriod = "168h"
 
@@ -128,7 +128,7 @@
 {{ $mtVersion := "2.1.5" -}}
 ["bin/manifest-tool"]
     type = "archive-file"
-    url = "https://github.com/estesp/manifest-tool/releases/latest/download/binaries-manifest-tool-{{ $mtVersion }}.tar.gz"
+    url = "https://github.com/estesp/manifest-tool/releases/download/v{{ $mtVersion }}/binaries-manifest-tool-{{ $mtVersion }}.tar.gz"
     refreshPeriod = "168h"
     path = "manifest-tool-linux-amd64"
 
@@ -172,7 +172,7 @@
 {{ $melangeVersion := "0.6.1" -}}
 ["bin/melange"]
     type = "archive-file"
-    url = "https://github.com/chainguard-dev/melange/releases/latest/download/melange_{{ $melangeVersion }}_linux_amd64.tar.gz"
+    url = "https://github.com/chainguard-dev/melange/releases/download/v{{ $melangeVersion }}/melange_{{ $melangeVersion }}_linux_amd64.tar.gz"
     stripComponents = 1
     refreshPeriod = "168h"
     path = "melange"
@@ -181,7 +181,7 @@
 {{ $apkoVersion := "0.13.2" -}}
 ["bin/apko"]
     type = "archive-file"
-    url = "https://github.com/chainguard-dev/apko/releases/latest/download/apko_{{ $apkoVersion }}_linux_amd64.tar.gz"
+    url = "https://github.com/chainguard-dev/apko/releases/download/v{{ $apkoVersion }}/apko_{{ $apkoVersion }}_linux_amd64.tar.gz"
     stripComponents = 1
     refreshPeriod = "168h"
     path = "apko"
@@ -190,7 +190,7 @@
 {{ $grypeVersion := "0.74.6" -}}
 ["bin/grype"]
     type = "archive-file"
-    url = "https://github.com/anchore/grype/releases/latest/download/grype_{{ $grypeVersion }}_linux_amd64.tar.gz"
+    url = "https://github.com/anchore/grype/releases/download/v{{ $grypeVersion }}/grype_{{ $grypeVersion }}_linux_amd64.tar.gz"
     refreshPeriod = "168h"
     path = "grype"
 
@@ -198,7 +198,7 @@
 {{ $syftVersion := "0.104.0" -}}
 ["bin/syft"]
     type = "archive-file"
-    url = "https://github.com/anchore/syft/releases/latest/download/syft_{{ $syftVersion }}_linux_amd64.tar.gz"
+    url = "https://github.com/anchore/syft/releases/download/v{{ $syftVersion }}/syft_{{ $syftVersion }}_linux_amd64.tar.gz"
     refreshPeriod = "168h"
     path = "syft"
 
@@ -206,7 +206,7 @@
 {{ $diveVersion := "0.12.0" -}}
 ["bin/dive"]
     type = "archive-file"
-    url = "https://github.com/wagoodman/dive/releases/latest/download/dive_{{ $diveVersion }}_linux_amd64.tar.gz"
+    url = "https://github.com/wagoodman/dive/releases/download/v{{ $diveVersion }}/dive_{{ $diveVersion }}_linux_amd64.tar.gz"
     refreshPeriod = "168h"
     path = "dive"
 
@@ -214,7 +214,7 @@
 {{ $fzfVersion := "0.46.1" -}}
 ["bin/fzf"]
     type = "archive-file"
-    url = "https://github.com/junegunn/fzf/releases/latest/download/fzf-{{ $fzfVersion }}-linux_amd64.tar.gz"
+    url = "https://github.com/junegunn/fzf/releases/download/{{ $fzfVersion }}/fzf-{{ $fzfVersion }}-linux_amd64.tar.gz"
     refreshPeriod = "168h"
     path = "fzf"
 
@@ -222,7 +222,7 @@
 {{ $nerdVersion := "1.7.3" -}}
 ["bin/nerdctl"]
     type = "archive-file"
-    url = "https://github.com/containerd/nerdctl/releases/latest/download/nerdctl-{{ $nerdVersion }}-linux-amd64.tar.gz"
+    url = "https://github.com/containerd/nerdctl/releases/download/v{{ $nerdVersion }}/nerdctl-{{ $nerdVersion }}-linux-amd64.tar.gz"
     refreshPeriod = "168h"
     path = "nerdctl"
 ["bin/containerd-rootless.sh"]
