@@ -37,6 +37,9 @@ alias alias piper="$PYENV_ROOT/versions/3.11.8/bin/piper"
 alias speakin="piper --download-dir $HOME/.config/piper --data-dir $HOME/.config/piper --model en_GB-alba-medium --output_raw | aplay -f S16_LE -c1 -r24000"
 alias speakclip="xsel | speakin"
 
+# Docker
+docker-prune="docker system prune --all --force"
+
 # Change keyboard layout
 #alias aoeu="setxkbmap us"
 #alias asdf="setxkbmap dvorak"
