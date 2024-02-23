@@ -40,3 +40,10 @@ cargo install --locked podlet
 # cross - cross compiler
 cargo install cross
 
+# command line youtube music player
+# NOTE: needs cookies: open youtube.com with a browser, open development
+# tools -> network -> F5 -> click on a resource and copy the information
+# by "Cookies":
+# echo -en "Cookie: $(xsel)\nUser-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" > ~/.config/ytermusic/headers.txt
+cargo install --git https://github.com/ccgauche/ytermusic
+
