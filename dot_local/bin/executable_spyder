@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source ~/.pyenv/versions/3.12.2/envs/spyder/bin/activate
+spyder
+
